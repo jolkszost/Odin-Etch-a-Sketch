@@ -1,0 +1,15 @@
+#container {
+    background-color: blueviolet;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.boxes {
+    background-color: rgb(44, 10, 77);
+    
+    border-color: black;
+    height: 100px;
+    width: 100px;
+    
+}
