@@ -77,7 +77,9 @@ console.log(boxes.length);
                 max = Math.floor(max);
                 return Math.floor(Math.random() * (max-min + 1) + min)
             }
-             
+            
+            colorSwitchCount++;
+
             if (alpha < 1) {
                 alpha += .1;
                 };   
@@ -86,19 +88,18 @@ console.log(boxes.length);
             const randG = getRandom(0, 255);
             const randB = getRandom(0, 255);
                     
-            b.style.backgroundColor = `rgb(0, 0, 0, ${alpha})`;
+        //    b.style.backgroundColor = `rgb(0, 0, 0, ${alpha})`;
        //     b.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB}, ${alpha})`;
-            
+       if (colorSwitchCount % 2 === 0) {
+        b.style.backgroundColor = 'rgb(0, 0 , 0)';
+    
+    } else b.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`;
+    
                 });
              let newBoxHeight = containerHeight / squareQ;
                let newBoxWidth = containerWidth / squareQ;
                 b.style.width = newBoxWidth+'px';
                 b.style.height = newBoxHeight+'px';
-            });
-                
-                
+            });      
         };
-     
-
-
 });
