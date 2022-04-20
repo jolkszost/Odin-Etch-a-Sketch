@@ -4,25 +4,21 @@ let boxHeight = containerHeight / squareSides;
 let containerWidth = 1000;
 let boxWidth = containerWidth / squareSides;
 
+let colorSwitchCount = 0;
 
 console.log(containerHeight, containerWidth, boxHeight, boxWidth)
 for (i = 0; i < (squareSides * squareSides); i++) {
     const box = document.createElement("div");
     box.setAttribute("class", "boxes");
     document.getElementById('container').appendChild(box);
-    
-
 };
+
 const boxes = document.querySelectorAll("div.boxes");
-
-
-
-
 
 boxes.forEach(function(b) {
     let alpha = .1;
      b.addEventListener("mouseenter", function() {
-   // b.style.backgroundColor = "blue";
+  // b.style.backgroundColor = "blue";
    
 function getRandom(min, max) {
     min = Math.ceil(min);
@@ -32,14 +28,18 @@ function getRandom(min, max) {
 if (alpha < 1) {
 alpha += .1;
 };
+colorSwitchCount++;
 const randR = getRandom(0, 255);
 const randG = getRandom(0, 255);
 const randB = getRandom(0, 255);
+/*
+b.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB}, ${alpha})`;*/
+//b.style.backgroundColor = `rgb(0, 0, 0, ${alpha})`;
+if (colorSwitchCount % 2 === 0) {
+    b.style.backgroundColor = 'rgb(0, 0 , 0)';
 
-b.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB}, ${alpha})`;
+} else b.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`;
 
-
- 
 });
  b.style.width = boxWidth+'px';
     b.style.height = boxHeight+'px';
@@ -85,12 +85,9 @@ console.log(boxes.length);
             const randR = getRandom(0, 255);
             const randG = getRandom(0, 255);
             const randB = getRandom(0, 255);
-         
-             
-                
-            
-
-            b.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB}, ${alpha})`;
+                    
+            b.style.backgroundColor = `rgb(0, 0, 0, ${alpha})`;
+       //     b.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB}, ${alpha})`;
             
                 });
              let newBoxHeight = containerHeight / squareQ;
